@@ -1,5 +1,19 @@
-const ADMIN_EMAIL = "Nasirsingabad.123";
-const ADMIN_PASS = "Meer.321";
+// Password ko "Plain Text" mein mat likhen. 
+// Isko "Base64" ya reverse karke rakhen taake asani se nazar na aaye.
+const SECURITY_KEY = "MTIzLnJlZU0="; // Yeh "123.reeM" ka encoded version hai
+
+function checkAdminLogin(inputEmail, inputPass) {
+    // Input ko encode karke check karna
+    const encodedInput = btoa(inputPass.split('').reverse().join(''));
+
+    if (inputEmail === "admin@zindan.in" && encodedInput === SECURITY_KEY) {
+        alert("Login Successful! Welcome Admin.");
+        return true;
+    } else {
+        alert("Ghalat Email ya Password!");
+        return false;
+    }
+}
 let currentUser = null;
 let activeCategory = 'actress';
 let isSignupMode = false;
@@ -123,4 +137,5 @@ function toggleAuth(mode) {
     
     document.getElementById("loginTab").className = isSignupMode ? "" : "active";
     document.getElementById("signupTab").className = isSignupMode ? "active" : "";
+
 }
