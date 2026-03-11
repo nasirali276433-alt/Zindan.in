@@ -1,38 +1,37 @@
-// Password ko "Plain Text" mein mat likhen. 
-// Isko "Base64" ya reverse karke rakhen taake asani se nazar na aaye.
-const SECURITY_KEY = "MTIzLnJlZU0="; // Yeh "123.reeM" ka encoded version hai
+// 1. Password Security Key (Secret)
+const SECURITY_KEY = "MTIzLnJlZU0="; 
 
-function function handleLogin(inputEmail, inputPass) {
-    // Input ko encode karke check karna
-    const encodedInput = btoa(inputPass.split('').reverse().join(''));
+// 2. Login Logic
+function handleLogin() {
+    const emailInput = document.getElementById('email').value;
+    const passInput = document.getElementById('password').value;
 
-    if (inputEmail === "admin@zindan.in" && encodedInput === SECURITY_KEY) {
+    // Password ko check karne ka formula
+    const encodedInput = btoa(passInput.split('').reverse().join(''));
+
+    if (emailInput === "admin@zindan.in" && encodedInput === SECURITY_KEY) {
         alert("Login Successful! Welcome Admin.");
-        return true;
     } else {
         alert("Ghalat Email ya Password!");
-        return false;
     }
 }
 
-// --- Yahan se naya code shuru ho raha hai (Line 17 ki jagah paste karen) ---
-
-let currentUser = null;
-let activeCategory = 'actress';
+// 3. Modal & Tab Logic (Is se Account button chalega)
 let isSignupMode = false;
 
 function toggleAuth(mode) {
-    isSignupMode = mode === 'signup';
+    isSignupMode = (mode === 'signup');
     document.getElementById("loginTab").className = isSignupMode ? "" : "active";
     document.getElementById("signupTab").className = isSignupMode ? "active" : "";
 }
 
-// Modal ko open aur close karne ka sahi tareeqa
-document.getElementById("authBtn").onclick = () => {
+// "Account" button click karne par modal kholna
+document.getElementById("authBtn").onclick = function() {
     document.getElementById("authModal").style.display = "flex";
 };
 
-document.querySelector(".close-modal").onclick = () => {
+// Modal band karne ka button (X)
+document.querySelector(".close-modal").onclick = function() {
     document.getElementById("authModal").style.display = "none";
 };
 
