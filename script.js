@@ -34,4 +34,22 @@ document.getElementById("authBtn").onclick = function() {
 document.querySelector(".close-modal").onclick = function() {
     document.getElementById("authModal").style.display = "none";
 };
+// Sidebar categories ko handle karne ka function
+function showCategory(category) {
+    console.log("Category selected: " + category);
+    
+    // Purani active category se highlight khatam karen
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => link.classList.remove('active'));
+
+    // Jis par click kiya usay highlight karen (agar element maujood ho)
+    const activeLink = event.currentTarget;
+    if(activeLink) activeLink.classList.add('active');
+
+    // Yahan aap apna image display logic likh sakte hain
+    if(category === 'actress') {
+        alert("Upload Pic option yahan open hoga!");
+        // Upload logic code yahan aayega
+    }
+}
 
