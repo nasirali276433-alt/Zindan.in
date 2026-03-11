@@ -2,7 +2,7 @@
 // Isko "Base64" ya reverse karke rakhen taake asani se nazar na aaye.
 const SECURITY_KEY = "MTIzLnJlZU0="; // Yeh "123.reeM" ka encoded version hai
 
-function checkAdminLogin(inputEmail, inputPass) {
+function function handleLogin(inputEmail, inputPass) {
     // Input ko encode karke check karna
     const encodedInput = btoa(inputPass.split('').reverse().join(''));
 
@@ -35,3 +35,4 @@ document.getElementById("authBtn").onclick = () => {
 document.querySelector(".close-modal").onclick = () => {
     document.getElementById("authModal").style.display = "none";
 };
+
