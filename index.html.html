@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zindan.in | Media Portal</title>
+    <link rel="stylesheet" href="styel.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Zindan.in</div>
+    <ul class="menu">
+        <li><a href="javascript:void(0)" id="authBtn">Account</a></li>
+        <li><a href="#">Contact Us</a></li>
+    </ul>
+</nav>
+
+<header class="hero-section">
+    <h1 class="welcome-text">Welcome to Zindan.in</h1>
+</header>
+
+<div class="container">
+    <aside class="sidebar">
+        <ul>
+            <li><a href="javascript:void(0)" onclick="showCategory('actress')">Actress Pic</a></li>
+            <li><a href="javascript:void(0)" onclick="showCategory('stories')">Stories (PDF)</a></li>
+            <li><a href="javascript:void(0)" onclick="showCategory('videos')">Videos</a></li>
+            <li><a href="javascript:void(0)" onclick="showCategory('movies')">Movies</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div id="adminPanel" class="admin-box" style="display: none;">
+            <h3>Admin: Add to <span id="currentCategoryText" style="color: orange;">actress</span></h3>
+            <p style="font-size: 12px; color: #ccc; margin-bottom: 10px;">Paste YouTube link for videos/movies or Google Drive link for Photos/PDFs.</p>
+            <input type="text" id="linkInput" placeholder="Paste link here..." style="width: 70%; padding: 10px;">
+            <button onclick="handleUpload()" class="upload-btn">Add Content</button>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+
+        <div id="displayGrid" class="photos-grid"></div>
+    </main>
+</div>
+
+<div id="authModal" class="modal">
+    <div class="modal-content auth-card">
+        <span class="close-modal">&times;</span>
+        
+        <div class="auth-header">
+            <h2 id="formTitle">Welcome Back</h2>
+            <p id="formSubtitle">Please enter your details to continue</p>
+        </div>
+
+        <div class="auth-tabs">
+            <button id="loginTab" class="active" onclick="toggleAuth('login')">Login</button>
+            <button id="signupTab" onclick="toggleAuth('signup')">Sign Up</button>
+        </div>
+
+        <div id="authForm">
+            <div class="input-group">
+                <input type="email" id="email" required placeholder=" ">
+                <label>Email Address</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" required placeholder=" ">
+                <label>Password</label>
+            </div>
+            <button id="submitAuth" class="btn-primary">Continue</button>
+            <p id="authMsg"></p>
+        </div>
+    </div>
+</div>
+
+<script src="java"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: #121212; color: white; font-family: sans-serif; }
+
+.navbar { height: 60px; background: #000; display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid #333; }
+.logo { color: orange; font-size: 24px; font-weight: bold; }
+.menu { margin-left: auto; list-style: none; display: flex; gap: 20px; }
+.menu a { color: white; text-decoration: none; }
+
+.hero-section { text-align: center; padding: 40px; }
+.welcome-text { color: #0d7be9; font-size: 3rem; text-transform: uppercase; }
+
+.container { display: flex; padding: 20px; gap: 20px; }
+.sidebar { width: 200px; border-right: 1px solid #333; }
+.sidebar li { list-style: none; margin-bottom: 15px; }
+.sidebar a { color: #0d7be9; text-decoration: none; font-size: 18px; font-weight: bold; }
+
+.photos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; flex-grow: 1; }
+.media-item { background: #1e1e1e; padding: 10px; border-radius: 10px; border: 1px solid #333; }
+.media-item img, .media-item iframe { width: 100%; border-radius: 5px; height: 180px; }
+
+.admin-box { background: #222; padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 1px dashed #0d7be9; }
+.upload-btn { background: #28a745; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 5px; }
+.logout-btn { background: #555; color: white; padding: 10px; border: none; cursor: pointer; border-radius: 5px; }
+.delete-btn { background: red; color: white; border: none; padding: 5px; width: 100%; margin-top: 10px; cursor: pointer; border-radius: 5px; }
+
+/* Modal & Fullscreen */
+.modal, .fullscreen-bg { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
+.modal-content { background: white; color: black; padding: 30px; border-radius: 15px; width: 320px; }
+.close-modal, .close-fullscreen { position: absolute; top: 20px; right: 30px; font-size: 40px; color: white; cursor: pointer; }
+.close-modal { color: black; }
+#fullScreenContent { width: 90%; height: 80vh; }
+#fullScreenContent iframe, #fullScreenContent img { width: 100%; height: 100%; border-radius: 10px; }
+/* --- Modern Auth Card Styles --- */
+.auth-card {
+    background: #ffffff !important; /* Clean white background */
+    color: #333 !important;
+    max-width: 400px;
+    padding: 40px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    position: relative;
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Exit Sign (The X) */
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    color: #999;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover { color: #ff4d4d; transform: rotate(90deg); }
+
+.auth-header { text-align: center; margin-bottom: 30px; }
+.auth-header h2 { font-size: 24px; color: #1a1a1a; margin-bottom: 5px; }
+.auth-header p { font-size: 14px; color: #666; }
+
+/* Animated Input Fields */
+.input-group { position: relative; margin-bottom: 25px; }
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* Label moves up when user clicks/types */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #0d7be9;
+    background: white;
+    padding: 0 5px;
+}
+
+.input-group input:focus { border-color: #0d7be9; }
+
+/* Login/Signup Tabs */
+.auth-tabs { display: flex; gap: 10px; margin-bottom: 30px; background: #f5f5f5; padding: 5px; border-radius: 12px; }
+.auth-tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #666;
+    transition: 0.3s;
+}
+
+.auth-tabs button.active { background: white; color: #0d7be9; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #0d7be9, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(13, 123, 233, 0.4); }
