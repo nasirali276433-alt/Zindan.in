@@ -1,80 +1,121 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zindan.in | Media Portal</title>
+    <title>Meer Company - Data Entry Services</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="logo">Zindan.in</div>
-    <ul class="menu">
-        <li><a href="javascript:void(0)" id="authBtn">Account</a></li>
-        <li><a href="#">Contact Us</a></li>
-    </ul>
-</nav>
-
-<header class="hero-section">
-    <h1 class="welcome-text">Welcome to Zindan.in</h1>
+<header>
+    <h1>Meer Company</h1>
+    <p>Professional Data Entry Services</p>
 </header>
 
-<div class="container">
-    <aside class="sidebar">
-        <ul>
-            <li><a href="javascript:void(0)" onclick="showCategory('actress')">Actress Pic</a></li>
-            <li><a href="javascript:void(0)" onclick="showCategory('stories')">Stories (PDF)</a></li>
-            <li><a href="javascript:void(0)" onclick="showCategory('videos')">Videos</a></li>
-            <li><a href="javascript:void(0)" onclick="showCategory('movies')">Movies</a></li>
-        </ul>
-    </aside>
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#owner">Owner</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <main class="main-content">
-        <div id="adminPanel" class="admin-box" style="display: none;">
-            <h3>Admin: Add to <span id="currentCategoryText" style="color: orange;">actress</span></h3>
-            <p style="font-size: 12px; color: #ccc; margin-bottom: 10px;">Paste YouTube link for videos/movies or Google Drive link for Photos/PDFs.</p>
-            <input type="text" id="linkInput" placeholder="Paste link here..." style="width: 70%; padding: 10px;">
-            <button onclick="handleUpload()" class="upload-btn">Add Content</button>
-            <button onclick="logout()" class="logout-btn">Logout</button>
-        </div>
+<section class="hero">
+    <h2>Welcome to Meer Company</h2>
+    <p>Providing Accurate, Fast and Reliable Data Entry Services</p>
 
-        <div id="displayGrid" class="photos-grid"></div>
-    </main>
-</div>
+    <button class="btn" onclick="openForm()">Get Started</button>
+</section>
 
-<div id="authModal" class="modal">
-    <div class="modal-content auth-card">
-        <span class="close-modal">&times;</span>
-        
-        <div class="auth-header">
-            <h2 id="formTitle">Welcome Back</h2>
-            <p id="formSubtitle">Please enter your details to continue</p>
-        </div>
+<!-- Registration Popup -->
+<div id="registerForm" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeForm()">&times;</span>
 
-        <div class="auth-tabs">
-            <button id="loginTab" class="active" onclick="toggleAuth('login')">Login</button>
-            <button id="signupTab" onclick="toggleAuth('signup')">Sign Up</button>
-        </div>
+        <h2>Create Account</h2>
 
-        <div id="authForm">
-            <div class="input-group">
-                <input type="email" id="email" required placeholder=" ">
-                <label>Email Address</label>
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" required placeholder=" ">
-                <label>Password</label>
-            </div>
-            <button id="submitAuth" class="btn-primary"onclick="handleLogin()">Continue</button>
-            <p id="authMsg"></p>
-        </div>
+        <form onsubmit="registerAccount(event)">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="text" placeholder="Company / Shop Name" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="password" placeholder="Password" required>
+
+            <button type="submit">Create Account</button>
+
+            <p id="successMsg"></p>
+        </form>
     </div>
 </div>
 
+<section id="about">
+    <div class="card">
+        <h2>About Company</h2>
+        <p>
+            Meer Company specializes in professional data entry services.
+            We help businesses organize and manage data efficiently.
+        </p>
+    </div>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+
+    <div class="services">
+        <div class="service-box">
+            <h3>Data Entry</h3>
+            <p>Fast and accurate data entry solutions.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Excel Management</h3>
+            <p>Professional spreadsheet management.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Copy-Paste Work</h3>
+            <p>Efficient handling of bulk tasks.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Online Research</h3>
+            <p>Data collection and web research services.</p>
+        </div>
+    </div>
+</section>
+
+<section id="owner">
+    <div class="card">
+        <h2>About Me</h2>
+        <p>
+            My name is <strong>Meer</strong>. I am a student of
+            <strong>BS Information Technology (BS IT)</strong>.
+        </p>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="card">
+        <h2>Contact Us</h2>
+
+        <form class="contact-form" onsubmit="showMessage(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+
+            <p id="message"></p>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Meer Company | Data Entry Services</p>
+</footer>
+
 <script src="script.js"></script>
+
 </body>
 </html>
-
-
-
